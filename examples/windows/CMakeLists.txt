@@ -6,8 +6,12 @@ add_executable(windows
     WindowEventDirectDispatcher.cpp
 )
 
+target_include_directories(windows PUBLIC
+    ${OPENGL_INCLUDE_DIR}
+)
+
 target_link_libraries(windows
     layer
-    ${OPENGL_gl_LIBRARY}
+    ${OPENGL_LIBRARIES}
 )
 

@@ -27,5 +27,9 @@ target_link_libraries(layer
     ${SDL2_LIBRARIES}
 )
 
+target_compile_options(layer PUBLIC
+    ${SDL2_DEFINITIONS}
+)
+
 install(TARGETS layer DESTINATION lib)
 
