@@ -10,35 +10,58 @@
 #include "WindowEventDirectDispatcher.h"
 
 WindowsApp::WindowsApp() {
-    wnd1 = layer::Window::create<layer::WindowGL>("GL", 256, 256);
+    wnd1 = layer::Window::create<layer::WindowGL>("GL 1", 256, 256);
     auto wnd1EventDispatcher = std::make_shared<WindowEventDirectDispatcher>(wnd1);
     wnd1EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd1, this));
     events.addDispatcher(wnd1EventDispatcher);
 
-    wnd2 = layer::Window::create<layer::Window2D>("2D", 128, 128);
+    wnd2 = layer::Window::create<layer::WindowGL>("GL 2", 128, 128);
     auto wnd2EventDispatcher = std::make_shared<WindowEventDirectDispatcher>(wnd2);
     wnd2EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd2, this));
     events.addDispatcher(wnd2EventDispatcher);
+
+    wnd3 = layer::Window::create<layer::Window2D>("2D 1", 256, 256);
+    auto wnd3EventDispatcher = std::make_shared<WindowEventDirectDispatcher>(wnd3);
+    wnd3EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd3, this));
+    events.addDispatcher(wnd3EventDispatcher);
+
+    wnd4 = layer::Window::create<layer::Window2D>("2D 2", 128, 128);
+    auto wnd4EventDispatcher = std::make_shared<WindowEventDirectDispatcher>(wnd4);
+    wnd4EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd4, this));
+    events.addDispatcher(wnd4EventDispatcher);
 }
 
 WindowsApp::~WindowsApp() {
 }
 
 void WindowsApp::run() {
-    while (wnd1 || wnd2) {
+    while (wnd1 || wnd2 || wnd3 || wnd4) {
         events.process();
 
         if (wnd1) {
             wnd1->makeCurrent();
-            glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+            glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
             wnd1->swapBuffers();
         }
 
         if (wnd2) {
-            wnd2->setDrawColor(0, 0, 255);
-            wnd2->clear();
+            wnd2->makeCurrent();
+            glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT);
             wnd2->swapBuffers();
+        }
+
+        if (wnd3) {
+            wnd3->setDrawColor(0, 0, 255);
+            wnd3->clear();
+            wnd3->swapBuffers();
+        }
+
+        if (wnd4) {
+            wnd4->setDrawColor(255, 255, 255);
+            wnd4->clear();
+            wnd4->swapBuffers();
         }
     }
 }
@@ -49,4 +72,12 @@ void WindowsApp::closeWnd1() {
 
 void WindowsApp::closeWnd2() {
     wnd2.reset();
+}
+
+void WindowsApp::closeWnd3() {
+    wnd3.reset();
+}
+
+void WindowsApp::closeWnd4() {
+    wnd4.reset();
 }
