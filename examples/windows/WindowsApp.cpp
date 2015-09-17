@@ -7,26 +7,26 @@
 #endif
 #include <GL/gl.h>
 
-#include "WindowEventDirectDispatcher.h"
+#include "SelectiveWindowEventDispatcher.h"
 
 WindowsApp::WindowsApp() {
     wnd1 = layer::Window::create<layer::WindowGL>("GL 1", 256, 256);
-    auto wnd1EventDispatcher = std::make_shared<WindowEventDirectDispatcher>(wnd1);
+    auto wnd1EventDispatcher = std::make_shared<SelectiveWindowEventDispatcher>(wnd1);
     wnd1EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd1, this));
     events.addDispatcher(wnd1EventDispatcher);
 
-    wnd2 = layer::Window::create<layer::WindowGL>("GL 2", 128, 128);
-    auto wnd2EventDispatcher = std::make_shared<WindowEventDirectDispatcher>(wnd2);
+    wnd2 = layer::Window::create<layer::WindowGL>("GL 2", 256, 256);
+    auto wnd2EventDispatcher = std::make_shared<SelectiveWindowEventDispatcher>(wnd2);
     wnd2EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd2, this));
     events.addDispatcher(wnd2EventDispatcher);
 
     wnd3 = layer::Window::create<layer::Window2D>("2D 1", 256, 256);
-    auto wnd3EventDispatcher = std::make_shared<WindowEventDirectDispatcher>(wnd3);
+    auto wnd3EventDispatcher = std::make_shared<SelectiveWindowEventDispatcher>(wnd3);
     wnd3EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd3, this));
     events.addDispatcher(wnd3EventDispatcher);
 
-    wnd4 = layer::Window::create<layer::Window2D>("2D 2", 128, 128);
-    auto wnd4EventDispatcher = std::make_shared<WindowEventDirectDispatcher>(wnd4);
+    wnd4 = layer::Window::create<layer::Window2D>("2D 2", 256, 256);
+    auto wnd4EventDispatcher = std::make_shared<SelectiveWindowEventDispatcher>(wnd4);
     wnd4EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd4, this));
     events.addDispatcher(wnd4EventDispatcher);
 }

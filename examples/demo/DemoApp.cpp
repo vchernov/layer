@@ -13,9 +13,6 @@ DemoApp::DemoApp() {
     auto sysEventDispatcher = std::make_shared<layer::SystemEventDispatcher>();
     events.addDispatcher(sysEventDispatcher);
 
-    auto wndEventDispatcher = std::make_shared<layer::WindowEventDispatcher>();
-    events.addDispatcher(wndEventDispatcher);
-
     auto keyEventDispatcher = std::make_shared<layer::KeyboardEventDispatcher>();
     events.addDispatcher(keyEventDispatcher);
 

@@ -2,8 +2,8 @@ add_executable(windows
     windows.cpp
     WindowsApp.h
     WindowsApp.cpp
-    WindowEventDirectDispatcher.h
-    WindowEventDirectDispatcher.cpp
+    SelectiveWindowEventDispatcher.h
+    SelectiveWindowEventDispatcher.cpp
 )
 
 target_include_directories(windows PUBLIC

@@ -18,10 +18,10 @@ private:
     void closeWnd3();
     void closeWnd4();
 
-    layer::EventQueue events;
-
     std::shared_ptr<layer::WindowGL> wnd1;
     std::shared_ptr<layer::WindowGL> wnd2;
     std::shared_ptr<layer::Window2D> wnd3;
     std::shared_ptr<layer::Window2D> wnd4;
+
+    layer::EventQueue events;
 };
