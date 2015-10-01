@@ -1,6 +1,8 @@
 add_library(layer
     core/Context.h
     core/Context.cpp
+    core/OpenGL.h
+    core/OpenGL.cpp
     core/InitError.h
     event/Delegate.h
     event/DelegateMap.h
