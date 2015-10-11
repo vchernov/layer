@@ -5,7 +5,7 @@
 
 #include "DemoApp.h"
 
-int main(int argc, char** argv) {
+int main(int, char**) {
     std::cout << "start" << std::endl;
 
     try {

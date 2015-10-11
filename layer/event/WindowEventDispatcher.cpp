@@ -15,7 +15,7 @@ void WindowEventDispatcher::dispatchEvent(const SDL_Event& event) {
     }
 }
 
-void WindowEventDispatcher::onClose(const SDL_Event& event) {
+void WindowEventDispatcher::onClose(const SDL_Event&) {
     close.invoke();
 }
 
