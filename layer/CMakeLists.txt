@@ -1,4 +1,4 @@
-add_library(layer
+set(SOURCES
     core/Context.h
     core/Context.cpp
     core/OpenGL.h
@@ -25,13 +25,29 @@ add_library(layer
     window/Window2D.cpp
 )
 
-target_link_libraries(layer
+set(LIBRARIES
     ${SDL2_LIBRARIES}
 )
-
-target_compile_options(layer PUBLIC
+set(DEFINITIONS
     ${SDL2_DEFINITIONS}
 )
+
+if (LAYER_FONT)
+    set(SOURCES ${SOURCES}
+        font/FontContext.h
+        font/FontContext.cpp
+    )
+    set(LIBRARIES ${LIBRARIES}
+        ${SDL2_TTF_LIBRARIES}
+    )
+    set(DEFINITIONS ${DEFINITIONS}
+        ${SDL2_TTF_DEFINITIONS}
+    )
+endif()
+
+add_library(layer ${SOURCES})
+target_link_libraries(layer ${LIBRARIES})
+target_compile_options(layer PUBLIC ${DEFINITIONS})
 
 install(TARGETS layer DESTINATION lib)
 
