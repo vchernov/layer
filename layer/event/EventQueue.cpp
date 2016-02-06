@@ -7,7 +7,7 @@ namespace layer {
 void EventQueue::process() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
-        for (auto dispatcher : dispatchers) {
+        for (const auto& dispatcher : dispatchers) {
             dispatcher->dispatchEvent(event);
         }
     }

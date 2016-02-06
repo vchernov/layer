@@ -1,7 +1,7 @@
 #include "SelectiveWindowEventDispatcher.h"
 
-SelectiveWindowEventDispatcher::SelectiveWindowEventDispatcher(std::weak_ptr<layer::Window> window)
-    : window(window) {
+SelectiveWindowEventDispatcher::SelectiveWindowEventDispatcher(std::weak_ptr<layer::Window> window) :
+        window(window) {
 }
 
 bool SelectiveWindowEventDispatcher::isForCurrentWindow(const SDL_Event& event) {

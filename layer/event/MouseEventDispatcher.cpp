@@ -4,15 +4,15 @@ namespace layer {
 
 void MouseEventDispatcher::dispatchEvent(const SDL_Event& event) {
     switch (event.type) {
-    case SDL_MOUSEMOTION:
-        onMouseMoved(event);
-        break;
-    case SDL_MOUSEBUTTONDOWN:
-        onMouseButtonDown(event);
-        break;
-    case SDL_MOUSEBUTTONUP:
-        onMouseButtonUp(event);
-        break;
+        case SDL_MOUSEMOTION:
+            onMouseMoved(event);
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            onMouseButtonDown(event);
+            break;
+        case SDL_MOUSEBUTTONUP:
+            onMouseButtonUp(event);
+            break;
     }
 }
 

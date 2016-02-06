@@ -4,12 +4,12 @@ namespace layer {
 
 void KeyboardEventDispatcher::dispatchEvent(const SDL_Event& event) {
     switch (event.type) {
-    case SDL_KEYDOWN:
-        onKeyDown(event);
-        break;
-    case SDL_KEYUP:
-        onKeyUp(event);
-        break;
+        case SDL_KEYDOWN:
+            onKeyDown(event);
+            break;
+        case SDL_KEYUP:
+            onKeyUp(event);
+            break;
     }
 }
 

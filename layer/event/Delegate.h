@@ -22,7 +22,7 @@ public:
     }
 
     void invoke(Args... args) {
-        for (auto callback : callbacks) {
+        for (const auto& callback : callbacks) {
             callback(args...);
         }
     }
