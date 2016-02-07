@@ -25,6 +25,10 @@ set(SOURCES
     window/AcceleratedWindow2D.cpp
     window/Window2D.h
     window/Window2D.cpp
+    time/Time.h
+    time/Time.cpp
+    time/Clock.h
+    time/Clock.cpp
 )
 
 set(LIBRARIES

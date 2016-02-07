@@ -1,13 +1,13 @@
 #pragma once
 
-#include <SDL.h>
+#include "Time.h"
 
 namespace layer {
 
-class Timer {
+class Clock {
 public:
-    Timer();
-    virtual ~Timer();
+    Clock();
+    virtual ~Clock();
 
     void start();
 
@@ -22,8 +22,8 @@ public:
     float deltaTime();
 
 private:
-    Uint32 startTime;
-    Uint32 lastTime;
+    float startTime;
+    float lastTime;
 };
 
 }
