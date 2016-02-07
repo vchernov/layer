@@ -21,6 +21,8 @@ set(SOURCES
     window/Window.cpp
     window/WindowGL.h
     window/WindowGL.cpp
+    window/AcceleratedWindow2D.h
+    window/AcceleratedWindow2D.cpp
     window/Window2D.h
     window/Window2D.cpp
 )
@@ -36,6 +38,8 @@ if (LAYER_FONT)
     set(SOURCES ${SOURCES}
         font/FontContext.h
         font/FontContext.cpp
+        font/Font.h
+        font/Font.cpp
     )
     set(LIBRARIES ${LIBRARIES}
         ${SDL2_TTF_LIBRARIES}
