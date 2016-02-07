@@ -38,6 +38,19 @@ set(DEFINITIONS
     ${SDL2_DEFINITIONS}
 )
 
+if (LAYER_IMAGE)
+    set(SOURCES ${SOURCES}
+        image/ImageContext.h
+        image/ImageContext.cpp
+    )
+    set(LIBRARIES ${LIBRARIES}
+        ${SDL2_IMAGE_LIBRARIES}
+    )
+    set(DEFINITIONS ${DEFINITIONS}
+        ${SDL2_IMAGE_DEFINITIONS}
+    )
+endif()
+
 if (LAYER_FONT)
     set(SOURCES ${SOURCES}
         font/FontContext.h
