@@ -4,16 +4,17 @@
 
 namespace layer {
 
-Window::Window(const std::string& title, int width, int height, Uint32 flags) {
-    window = SDL_CreateWindow(title.c_str(), 
-        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
-        width, height, flags);
+Window::Window(const std::string& title, int width, int height, uint32_t flags) {
+    window = SDL_CreateWindow(
+            title.c_str(),
+            SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height,
+            flags);
     if (window == nullptr) {
         throw InitError(SDL_GetError());
     }
 }
 
-Uint32 Window::getId() const {
+uint32_t Window::id() const {
     return SDL_GetWindowID(window);
 }
 

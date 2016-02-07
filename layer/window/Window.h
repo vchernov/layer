@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <memory>
 #include <string>
 #include <type_traits>
@@ -10,7 +11,7 @@ namespace layer {
 
 class Window {
 public:
-    Window(const std::string& title, int width, int height, Uint32 flags);
+    Window(const std::string& title, int width, int height, uint32_t flags);
     virtual ~Window();
 
     template<class T>
@@ -39,7 +40,7 @@ public:
         return std::make_shared<T>(title, mode.w, mode.h, SDL_WINDOW_FULLSCREEN);
     }
 
-    Uint32 getId() const;
+    uint32_t id() const;
 
     virtual void swapBuffers() = 0;
 

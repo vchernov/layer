@@ -2,25 +2,24 @@
 
 namespace layer {
 
-Window2D::Window2D(const std::string& title, int width, int height, Uint32 flags)
-    : Window(title, width, height, flags) {
-    renderer = SDL_CreateRenderer(window, -1, 0);
+Window2D::Window2D(const std::string& title, int width, int height, uint32_t flags) :
+        Window(title, width, height, flags) {
 }
 
 Window2D::~Window2D() {
-    SDL_DestroyRenderer(renderer);
 }
 
 void Window2D::swapBuffers() {
-    SDL_RenderPresent(renderer);
+    SDL_UpdateWindowSurface(window);
 }
 
-void Window2D::setDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
-    SDL_SetRenderDrawColor(renderer, r, g, b, a);
+SDL_Surface* Window2D::surface() const {
+    return SDL_GetWindowSurface(window);
 }
 
-void Window2D::clear() {
-    SDL_RenderClear(renderer);
+void Window2D::fill(uint8_t r, uint8_t g, uint8_t b) {
+    SDL_Surface* screen = surface();
+    SDL_FillRect(screen, nullptr, SDL_MapRGB(screen->format, r, g, b));
 }
 
 }

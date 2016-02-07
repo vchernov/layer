@@ -2,8 +2,8 @@
 
 namespace layer {
 
-WindowGL::WindowGL(const std::string& title, int width, int height, Uint32 flags)
-    : Window(title, width, height, SDL_WINDOW_OPENGL | flags) {
+WindowGL::WindowGL(const std::string& title, int width, int height, uint32_t flags) :
+        Window(title, width, height, SDL_WINDOW_OPENGL | flags) {
     context = SDL_GL_CreateContext(window);
 }
 
