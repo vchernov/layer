@@ -20,12 +20,12 @@ WindowsApp::WindowsApp() {
     wnd2EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd2, this));
     events.addDispatcher(wnd2EventDispatcher);
 
-    wnd3 = layer::Window::create<layer::Window2D>("2D 1", 256, 256);
+    wnd3 = layer::Window::create<layer::AcceleratedWindow2D>("2D 1", 256, 256);
     auto wnd3EventDispatcher = std::make_shared<SelectiveWindowEventDispatcher>(wnd3);
     wnd3EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd3, this));
     events.addDispatcher(wnd3EventDispatcher);
 
-    wnd4 = layer::Window::create<layer::Window2D>("2D 2", 256, 256);
+    wnd4 = layer::Window::create<layer::AcceleratedWindow2D>("2D 2", 256, 256);
     auto wnd4EventDispatcher = std::make_shared<SelectiveWindowEventDispatcher>(wnd4);
     wnd4EventDispatcher->close.add(std::bind(&WindowsApp::closeWnd4, this));
     events.addDispatcher(wnd4EventDispatcher);

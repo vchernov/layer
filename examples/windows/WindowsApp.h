@@ -2,7 +2,7 @@
 
 #include "../../layer/window/Window.h"
 #include "../../layer/window/WindowGL.h"
-#include "../../layer/window/Window2D.h"
+#include "../../layer/window/AcceleratedWindow2D.h"
 #include "../../layer/event/EventQueue.h"
 
 class WindowsApp {
@@ -20,8 +20,8 @@ private:
 
     std::shared_ptr<layer::WindowGL> wnd1;
     std::shared_ptr<layer::WindowGL> wnd2;
-    std::shared_ptr<layer::Window2D> wnd3;
-    std::shared_ptr<layer::Window2D> wnd4;
+    std::shared_ptr<layer::AcceleratedWindow2D> wnd3;
+    std::shared_ptr<layer::AcceleratedWindow2D> wnd4;
 
     layer::EventQueue events;
 };
