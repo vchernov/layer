@@ -1,10 +1,8 @@
 #pragma once
 
-class PictureApp {
+#include "../../layer/core/App.h"
+
+class PictureApp : public layer::App {
 public:
-    PictureApp();
-    virtual ~PictureApp();
-
-    void run();
+    PictureApp(const std::string& pictureFileName);
 };
-

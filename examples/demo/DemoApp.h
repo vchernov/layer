@@ -2,19 +2,16 @@
 
 #include <memory>
 
-#include "../../layer/event/EventQueue.h"
+#include "../../layer/core/App.h"
 #include "../../layer/window/Window.h"
 
-class DemoApp {
+class DemoApp : public layer::App {
 public:
     DemoApp();
-    virtual ~DemoApp();
 
-    void run();
-    void quit();
+protected:
+    void update() override;
 
 private:
-    bool running = false;
-    layer::EventQueue events;
     std::shared_ptr<layer::Window> window;
 };

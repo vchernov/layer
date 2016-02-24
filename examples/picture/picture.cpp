@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
         layer::ImageContext imageContext;
 
         if (argc > 1) {
-            PictureApp app;
+            PictureApp app(argv[0]);
             app.run();
         }
     } catch (layer::InitError& e) {

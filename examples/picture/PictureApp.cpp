@@ -1,10 +1,4 @@
 #include "PictureApp.h"
 
-PictureApp::PictureApp() {
-}
-
-PictureApp::~PictureApp() {
-}
-
-void PictureApp::run() {
+PictureApp::PictureApp(const std::string& pictureFileName) {
 }
