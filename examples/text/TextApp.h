@@ -1,7 +1,5 @@
 #pragma once
 
-#include <memory>
-
 #include "../../layer/core/App.h"
 #include "../../layer/window/Window2D.h"
 

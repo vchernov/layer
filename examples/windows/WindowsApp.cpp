@@ -31,53 +31,58 @@ WindowsApp::WindowsApp() {
     events.addDispatcher(wnd4EventDispatcher);
 }
 
-WindowsApp::~WindowsApp() {
-}
+void WindowsApp::update() {
+    if (wnd1) {
+        wnd1->makeCurrent();
+        glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+        wnd1->swapBuffers();
+    }
 
-void WindowsApp::run() {
-    while (wnd1 || wnd2 || wnd3 || wnd4) {
-        events.process();
+    if (wnd2) {
+        wnd2->makeCurrent();
+        glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+        wnd2->swapBuffers();
+    }
 
-        if (wnd1) {
-            wnd1->makeCurrent();
-            glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
-            wnd1->swapBuffers();
-        }
+    if (wnd3) {
+        wnd3->setDrawColor(0, 0, 255);
+        wnd3->clear();
+        wnd3->swapBuffers();
+    }
 
-        if (wnd2) {
-            wnd2->makeCurrent();
-            glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
-            wnd2->swapBuffers();
-        }
-
-        if (wnd3) {
-            wnd3->setDrawColor(0, 0, 255);
-            wnd3->clear();
-            wnd3->swapBuffers();
-        }
-
-        if (wnd4) {
-            wnd4->setDrawColor(255, 255, 255);
-            wnd4->clear();
-            wnd4->swapBuffers();
-        }
+    if (wnd4) {
+        wnd4->setDrawColor(255, 255, 255);
+        wnd4->clear();
+        wnd4->swapBuffers();
     }
 }
 
 void WindowsApp::closeWnd1() {
     wnd1.reset();
+    if (!wnd2 && !wnd3 && !wnd4) {
+        stop();
+    }
 }
 
 void WindowsApp::closeWnd2() {
     wnd2.reset();
+    if (!wnd1 && !wnd3 && !wnd4) {
+        stop();
+    }
 }
 
 void WindowsApp::closeWnd3() {
     wnd3.reset();
+    if (!wnd1 && !wnd2 && !wnd4) {
+        stop();
+    }
 }
 
 void WindowsApp::closeWnd4() {
     wnd4.reset();
+    if (!wnd1 && !wnd2 && !wnd3) {
+        stop();
+    }
 }

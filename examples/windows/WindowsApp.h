@@ -1,16 +1,15 @@
 #pragma once
 
-#include "../../layer/window/Window.h"
+#include "../../layer/core/App.h"
 #include "../../layer/window/WindowGL.h"
 #include "../../layer/window/AcceleratedWindow2D.h"
-#include "../../layer/event/EventQueue.h"
 
-class WindowsApp {
+class WindowsApp : public layer::App {
 public:
     WindowsApp();
-    virtual ~WindowsApp();
 
-    void run();
+protected:
+    void update() override;
 
 private:
     void closeWnd1();
@@ -22,6 +21,4 @@ private:
     std::shared_ptr<layer::WindowGL> wnd2;
     std::shared_ptr<layer::AcceleratedWindow2D> wnd3;
     std::shared_ptr<layer::AcceleratedWindow2D> wnd4;
-
-    layer::EventQueue events;
 };
