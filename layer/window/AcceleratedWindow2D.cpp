@@ -3,25 +3,21 @@
 namespace layer {
 
 AcceleratedWindow2D::AcceleratedWindow2D(const std::string& title,
-        int width, int height, uint32_t flags) :
-        Window(title, width, height, flags) {
-    renderer = SDL_CreateRenderer(window, -1, 0);
+        int width, int height, uint32_t windowFlags,
+        uint32_t rendererFlags, int driverIndex) :
+        Window(title, width, height, windowFlags) {
+    renderer = std::make_unique<Renderer>(window, rendererFlags, driverIndex);
 }
 
 AcceleratedWindow2D::~AcceleratedWindow2D() {
-    SDL_DestroyRenderer(renderer);
 }
 
 void AcceleratedWindow2D::swapBuffers() {
-    SDL_RenderPresent(renderer);
+    renderer->present();
 }
 
-void AcceleratedWindow2D::setDrawColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a) {
-    SDL_SetRenderDrawColor(renderer, r, g, b, a);
-}
-
-void AcceleratedWindow2D::clear() {
-    SDL_RenderClear(renderer);
+Renderer& AcceleratedWindow2D::getRenderer() const {
+    return *renderer;
 }
 
 }

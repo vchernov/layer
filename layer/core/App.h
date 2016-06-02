@@ -10,7 +10,7 @@ namespace layer {
 class App {
 public:
     App();
-    virtual ~App();
+    virtual ~App() = default;
 
     void run();
     void stop();

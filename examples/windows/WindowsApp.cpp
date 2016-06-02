@@ -47,14 +47,14 @@ void WindowsApp::update() {
     }
 
     if (wnd3) {
-        wnd3->setDrawColor(0, 0, 255);
-        wnd3->clear();
+        wnd3->getRenderer().setDrawColor(0, 0, 255);
+        wnd3->getRenderer().clear();
         wnd3->swapBuffers();
     }
 
     if (wnd4) {
-        wnd4->setDrawColor(255, 255, 255);
-        wnd4->clear();
+        wnd4->getRenderer().setDrawColor(255, 255, 255);
+        wnd4->getRenderer().clear();
         wnd4->swapBuffers();
     }
 }

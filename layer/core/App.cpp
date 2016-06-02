@@ -8,9 +8,6 @@ App::App() {
     events.addDispatcher(sysEventDispatcher);
 }
 
-App::~App() {
-}
-
 void App::run() {
     running = true;
     while (running) {

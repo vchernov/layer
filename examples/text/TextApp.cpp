@@ -8,8 +8,8 @@ TextApp::TextApp(const std::string& fontFileName) {
 }
 
 void TextApp::update() {
-    window->fill(0xFF, 0xFF, 0xFF);
-    font->render("Hello world!", 0, 0, window->surface());
+    window->getSurface().fill(0xFF, 0xFF, 0xFF);
+    font->render("Hello world!", 0, 0, window->getSurface().getNativeSurface());
 
     window->swapBuffers();
 }

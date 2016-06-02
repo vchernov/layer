@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.h"
+#include "../surface/ISurface.h"
 
 namespace layer {
 
@@ -11,8 +12,7 @@ public:
 
     void swapBuffers() override;
 
-    SDL_Surface* surface() const;
-    void fill(uint8_t r, uint8_t g, uint8_t b);
+    ISurface& getSurface() const;
 };
 
 }
