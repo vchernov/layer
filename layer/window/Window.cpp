@@ -14,7 +14,7 @@ Window::Window(const std::string& title, int width, int height, uint32_t flags) 
     }
 }
 
-uint32_t Window::id() const {
+uint32_t Window::getWindowId() const {
     return SDL_GetWindowID(window);
 }
 

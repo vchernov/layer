@@ -1,9 +1,13 @@
 #include "ImageUtils.h"
 
+#include <SDL_image.h>
+
+#include "../surface/Surface.h"
+
 namespace layer {
 
-SDL_Surface* ImageUtils::loadSurface(const std::string& fn) {
-    return IMG_Load(fn.c_str());
+std::unique_ptr<ISurface> ImageUtils::loadSurface(const std::string& fn) {
+    return std::make_unique<Surface>(IMG_Load(fn.c_str()));
 }
 
 }

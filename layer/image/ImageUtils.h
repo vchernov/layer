@@ -1,14 +1,15 @@
 #pragma once
 
+#include <memory>
 #include <string>
-
-#include <SDL_image.h>
 
 namespace layer {
 
+class ISurface;
+
 class ImageUtils {
 public:
-    static SDL_Surface* loadSurface(const std::string& fn);
+    static std::unique_ptr<ISurface> loadSurface(const std::string& fn);
 };
 
 }

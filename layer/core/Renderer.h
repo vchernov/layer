@@ -10,7 +10,6 @@ public:
     static const int DEFAULT_DRIVER_INDEX = -1; // to initialize the first one supporting the requested flags
 
     Renderer(SDL_Window* window, uint32_t flags = DEFAULT_FLAGS, int driverIndex = DEFAULT_DRIVER_INDEX);
-
     virtual ~Renderer();
 
     // update the screen with any rendering performed since the previous call

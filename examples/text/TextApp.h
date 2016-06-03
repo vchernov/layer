@@ -13,6 +13,6 @@ protected:
     void update() override;
 
 private:
-    std::shared_ptr<layer::Window2D> window;
-    std::shared_ptr<layer::Font> font;
+    std::unique_ptr<layer::Window2D> window;
+    std::unique_ptr<layer::Font> font;
 };

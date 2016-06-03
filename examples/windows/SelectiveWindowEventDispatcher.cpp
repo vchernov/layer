@@ -6,7 +6,7 @@ SelectiveWindowEventDispatcher::SelectiveWindowEventDispatcher(std::weak_ptr<lay
 
 bool SelectiveWindowEventDispatcher::isForCurrentWindow(const SDL_Event& event) {
     auto current = window.lock();
-    return current && event.window.windowID == current->id();
+    return current && event.window.windowID == current->getWindowId();
 }
 
 void SelectiveWindowEventDispatcher::onClose(const SDL_Event& event) {

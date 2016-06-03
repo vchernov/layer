@@ -1,21 +1,24 @@
 #pragma once
 
 #include <cstdint>
+#include <memory>
 #include <string>
 
 #include <SDL_ttf.h>
 
 namespace layer {
 
+class ISurface;
+
 class Font {
 public:
     Font(const std::string& fileName, int pointSize);
     virtual ~Font();
 
-    virtual SDL_Surface* render(const std::string& text) const = 0;
-    void render(const std::string& text, int x, int y, SDL_Surface* destination);
-
+    void render(const std::string& text, int x, int y, ISurface& destination);
     void setColor(uint8_t r, uint8_t g, uint8_t b);
+
+    virtual std::unique_ptr<ISurface> render(const std::string& text) const = 0;
 
 protected:
     TTF_Font* font;
@@ -27,9 +30,9 @@ public:
     SolidFont(const std::string& fileName, int pointSize) :
             Font(fileName, pointSize) {
     }
-    virtual ~SolidFont() = default;
+    ~SolidFont() override = default;
 
-    virtual SDL_Surface* render(const std::string& text) const override;
+    std::unique_ptr<ISurface> render(const std::string& text) const override;
 };
 
 class BlendedFont : public Font {
@@ -37,9 +40,9 @@ public:
     BlendedFont(const std::string& fileName, int pointSize) :
             Font(fileName, pointSize) {
     }
-    virtual ~BlendedFont() = default;
+    ~BlendedFont() override = default;
 
-    virtual SDL_Surface* render(const std::string& text) const override;
+    std::unique_ptr<ISurface> render(const std::string& text) const override;
 };
 
 class ShadedFont : public Font {
@@ -47,9 +50,9 @@ public:
     ShadedFont(const std::string& fileName, int pointSize) :
             Font(fileName, pointSize) {
     }
-    virtual ~ShadedFont() = default;
+    ~ShadedFont() override = default;
 
-    virtual SDL_Surface* render(const std::string& text) const override;
+    std::unique_ptr<ISurface> render(const std::string& text) const override;
 
     void setBackgroundColor(uint8_t r, uint8_t g, uint8_t b);
 

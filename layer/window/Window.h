@@ -15,32 +15,32 @@ public:
     virtual ~Window();
 
     template<class T>
-    static std::shared_ptr<T> create(const std::string& title, int width, int height) {
+    static std::unique_ptr<T> create(const std::string& title, int width, int height) {
         static_assert(std::is_base_of<Window, T>::value, "T must be derived from Window");
-        return std::make_shared<T>(title, width, height);
+        return std::make_unique<T>(title, width, height);
     }
 
     template<class T>
-    static std::shared_ptr<T> createResizable(const std::string& title, int width, int height) {
+    static std::unique_ptr<T> createResizable(const std::string& title, int width, int height) {
         static_assert(std::is_base_of<Window, T>::value, "T must be derived from Window");
-        return std::make_shared<T>(title, width, height, SDL_WINDOW_RESIZABLE);
+        return std::make_unique<T>(title, width, height, SDL_WINDOW_RESIZABLE);
     }
 
     template<class T>
-    static std::shared_ptr<T> createFullscreen(const std::string& title, int width, int height) {
+    static std::unique_ptr<T> createFullscreen(const std::string& title, int width, int height) {
         static_assert(std::is_base_of<Window, T>::value, "T must be derived from Window");
-        return std::make_shared<T>(title, width, height, SDL_WINDOW_FULLSCREEN);
+        return std::make_unique<T>(title, width, height, SDL_WINDOW_FULLSCREEN);
     }
 
     template<class T>
-    static std::shared_ptr<T> createFullscreen(const std::string& title, int displayIndex = 0) {
+    static std::unique_ptr<T> createFullscreen(const std::string& title, int displayIndex = 0) {
         static_assert(std::is_base_of<Window, T>::value, "T must be derived from Window");
         SDL_DisplayMode mode;
         SDL_GetCurrentDisplayMode(displayIndex, &mode);
-        return std::make_shared<T>(title, mode.w, mode.h, SDL_WINDOW_FULLSCREEN);
+        return std::make_unique<T>(title, mode.w, mode.h, SDL_WINDOW_FULLSCREEN);
     }
 
-    uint32_t id() const;
+    uint32_t getWindowId() const;
 
     virtual void swapBuffers() = 0;
 

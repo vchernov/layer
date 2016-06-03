@@ -4,6 +4,8 @@ set(SOURCES
     core/OpenGL.h
     core/OpenGL.cpp
     core/InitError.h
+    core/Renderer.h
+    core/Renderer.cpp
     event/Delegate.h
     event/DelegateMap.h
     event/EventQueue.h
@@ -29,6 +31,11 @@ set(SOURCES
     time/Time.cpp
     time/Clock.h
     time/Clock.cpp
+    surface/ISurface.h
+    surface/SurfaceWrapper.h
+    surface/SurfaceWrapper.cpp
+    surface/Surface.h
+    surface/Surface.cpp
 )
 
 set(LIBRARIES
