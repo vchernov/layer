@@ -6,6 +6,8 @@ set(SOURCES
     core/InitError.h
     core/Renderer.h
     core/Renderer.cpp
+    core/App.h
+    core/App.cpp
     event/Delegate.h
     event/DelegateMap.h
     event/EventQueue.h

@@ -7,7 +7,7 @@ option(LAYER_FONT "Add font support" OFF)
 option(LAYER_BUILD_EXAMPLES "Build example programs" OFF)
 
 if (CMAKE_COMPILER_IS_GNUCXX)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++14")
 endif()
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR})
