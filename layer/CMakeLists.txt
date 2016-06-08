@@ -41,10 +41,7 @@ set(SOURCES
 )
 
 set(LIBRARIES
-    ${SDL2_LIBRARIES}
-)
-set(DEFINITIONS
-    ${SDL2_DEFINITIONS}
+    ${SDL2MAIN_LIBRARY} ${SDL2_LIBRARY}
 )
 
 if (LAYER_IMAGE)
@@ -53,10 +50,7 @@ if (LAYER_IMAGE)
         image/ImageContext.cpp
     )
     set(LIBRARIES ${LIBRARIES}
-        ${SDL2_IMAGE_LIBRARIES}
-    )
-    set(DEFINITIONS ${DEFINITIONS}
-        ${SDL2_IMAGE_DEFINITIONS}
+        ${SDL2_IMAGE_LIBRARY}
     )
 endif()
 
@@ -68,16 +62,12 @@ if (LAYER_FONT)
         font/Font.cpp
     )
     set(LIBRARIES ${LIBRARIES}
-        ${SDL2_TTF_LIBRARIES}
-    )
-    set(DEFINITIONS ${DEFINITIONS}
-        ${SDL2_TTF_DEFINITIONS}
+        ${SDL2_TTF_LIBRARY}
     )
 endif()
 
 add_library(layer ${SOURCES})
 target_link_libraries(layer ${LIBRARIES})
-target_compile_options(layer PUBLIC ${DEFINITIONS})
+target_compile_options(layer PUBLIC ${SDL2_CFLAGS_OTHER})
 
 install(TARGETS layer DESTINATION lib)
-

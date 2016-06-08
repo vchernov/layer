@@ -18,9 +18,9 @@ find_library(SDL2MAIN_LIBRARY
     HINTS ${SDL2_LIBDIR} ${SDL2_LIBRARY_DIRS}
 )
 
-set(SDL2_INCLUDE_DIRS ${SDL2_INCLUDE_DIR})
-set(SDL2_LIBRARIES ${SDL2_LIBRARY} ${SDL2MAIN_LIBRARY})
-set(SDL2_DEFINITIONS ${SDL2_CFLAGS_OTHER})
+if (MINGW)
+    set(SDL2MAIN_LIBRARY mingw32 ${SDL2MAIN_LIBRARY})
+endif()
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(SDL2 DEFAULT_MSG
@@ -28,4 +28,3 @@ find_package_handle_standard_args(SDL2 DEFAULT_MSG
     SDL2_LIBRARY
     SDL2MAIN_LIBRARY
 )
-
