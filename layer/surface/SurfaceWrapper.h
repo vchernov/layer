@@ -13,8 +13,11 @@ public:
 
     SDL_Surface* getNativeSurface() const override;
 
-    void fill(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255) override;
-    void fillRect(int x, int y, int width, int height, uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255) override;
+    void fill(uint8_t r, uint8_t g, uint8_t b) override;
+    void fill(uint8_t r, uint8_t g, uint8_t b, uint8_t a) override;
+
+    void fillRect(int x, int y, int width, int height, uint8_t r, uint8_t g, uint8_t b) override;
+    void fillRect(int x, int y, int width, int height, uint8_t r, uint8_t g, uint8_t b, uint8_t a) override;
 
     void blit(ISurface& other, int x, int y) override;
 

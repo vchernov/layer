@@ -8,7 +8,7 @@
 class SelectiveWindowEventDispatcher : public layer::WindowEventDispatcher {
 public:
     SelectiveWindowEventDispatcher(std::weak_ptr<layer::Window> window);
-    virtual ~SelectiveWindowEventDispatcher() = default;
+    ~SelectiveWindowEventDispatcher() = default;
 
 protected:
     void onClose(const SDL_Event& event) override;

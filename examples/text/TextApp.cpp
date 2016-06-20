@@ -1,10 +1,12 @@
 #include "TextApp.h"
 
+#include "../../layer/font/BlendedFont.h"
+
 TextApp::TextApp(const std::string& fontFileName) {
     window = layer::Window::createResizable<layer::Window2D>("Text", 320, 240);
 
     font = std::make_unique<layer::BlendedFont>(fontFileName, 32);
-    font->setColor(0x00, 0xFF, 0x00);
+    font->setColor(0x00, 0x00, 0xFF);
 }
 
 void TextApp::update() {

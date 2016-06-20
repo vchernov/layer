@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../layer/core/App.h"
-#include "../../layer/window/Window.h"
+#include "../../layer/window/AcceleratedWindow2D.h"
 
 class DemoApp : public layer::App {
 public:
@@ -11,5 +11,5 @@ protected:
     void update() override;
 
 private:
-    std::shared_ptr<layer::Window> window;
+    std::unique_ptr<layer::AcceleratedWindow2D> window;
 };

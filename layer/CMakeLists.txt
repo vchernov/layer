@@ -4,6 +4,7 @@ set(SOURCES
     core/OpenGL.h
     core/OpenGL.cpp
     core/InitError.h
+    core/IllegalArgumentException.h
     core/Renderer.h
     core/Renderer.cpp
     core/App.h
@@ -60,6 +61,12 @@ if (LAYER_FONT)
         font/FontContext.cpp
         font/Font.h
         font/Font.cpp
+        font/SolidFont.h
+        font/SolidFont.cpp
+        font/ShadedFont.h
+        font/ShadedFont.cpp
+        font/BlendedFont.h
+        font/BlendedFont.cpp
     )
     set(LIBRARIES ${LIBRARIES}
         ${SDL2_TTF_LIBRARY}

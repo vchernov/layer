@@ -13,8 +13,9 @@ void Window2D::swapBuffers() {
 }
 
 ISurface& Window2D::getSurface() const {
-    static SurfaceWrapper wrapper(nullptr);
-    wrapper = SurfaceWrapper(SDL_GetWindowSurface(window));
+    SDL_Surface* windowSurface = SDL_GetWindowSurface(window);
+    static SurfaceWrapper wrapper(windowSurface);
+    wrapper = SurfaceWrapper(windowSurface);
     return wrapper;
 }
 

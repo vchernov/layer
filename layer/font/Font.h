@@ -25,39 +25,4 @@ protected:
     SDL_Color color;
 };
 
-class SolidFont : public Font {
-public:
-    SolidFont(const std::string& fileName, int pointSize) :
-            Font(fileName, pointSize) {
-    }
-    ~SolidFont() override = default;
-
-    std::unique_ptr<ISurface> render(const std::string& text) const override;
-};
-
-class BlendedFont : public Font {
-public:
-    BlendedFont(const std::string& fileName, int pointSize) :
-            Font(fileName, pointSize) {
-    }
-    ~BlendedFont() override = default;
-
-    std::unique_ptr<ISurface> render(const std::string& text) const override;
-};
-
-class ShadedFont : public Font {
-public:
-    ShadedFont(const std::string& fileName, int pointSize) :
-            Font(fileName, pointSize) {
-    }
-    ~ShadedFont() override = default;
-
-    std::unique_ptr<ISurface> render(const std::string& text) const override;
-
-    void setBackgroundColor(uint8_t r, uint8_t g, uint8_t b);
-
-protected:
-    SDL_Color backgroundColor;
-};
-
 }

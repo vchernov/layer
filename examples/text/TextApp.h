@@ -2,7 +2,6 @@
 
 #include "../../layer/core/App.h"
 #include "../../layer/window/Window2D.h"
-
 #include "../../layer/font/Font.h"
 
 class TextApp : public layer::App {
