@@ -5,8 +5,11 @@ set(SOURCES
     core/OpenGL.cpp
     core/InitError.h
     core/IllegalArgumentException.h
+    core/LoadingFailedException.h
     core/Renderer.h
     core/Renderer.cpp
+    core/Texture.h
+    core/Texture.cpp
     core/App.h
     core/App.cpp
     event/Delegate.h

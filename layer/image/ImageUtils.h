@@ -9,7 +9,7 @@ class ISurface;
 
 class ImageUtils {
 public:
-    static std::unique_ptr<ISurface> loadSurface(const std::string& fn);
+    static std::unique_ptr<ISurface> loadImage(const std::string& fileName);
 };
 
 }

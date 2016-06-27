@@ -2,6 +2,7 @@
 
 #include "../../layer/core/Context.h"
 #include "../../layer/core/InitError.h"
+#include "../../layer/core/LoadingFailedException.h"
 
 #include "../../layer/image/ImageContext.h"
 
@@ -15,10 +16,12 @@ int main(int argc, char** argv) {
         layer::ImageContext imageContext;
 
         if (argc > 1) {
-            PictureApp app(argv[0]);
+            PictureApp app(argv[1]);
             app.run();
         }
     } catch (layer::InitError& e) {
+        std::cerr << e.what() << std::endl;
+    } catch (layer::LoadingFailedException& e) {
         std::cerr << e.what() << std::endl;
     }
 

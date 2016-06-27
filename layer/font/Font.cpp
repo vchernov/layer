@@ -1,11 +1,15 @@
 #include "Font.h"
 
 #include "../surface/Surface.h"
+#include "../core/LoadingFailedException.h"
 
 namespace layer {
 
 Font::Font(const std::string& fileName, int pointSize) {
     font = TTF_OpenFont(fileName.c_str(), pointSize);
+    if (font == nullptr) {
+        throw LoadingFailedException("Failed to load '" + fileName + "': " + TTF_GetError());
+    }
 }
 
 Font::~Font() {

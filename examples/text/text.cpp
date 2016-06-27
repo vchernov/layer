@@ -2,6 +2,7 @@
 
 #include "../../layer/core/Context.h"
 #include "../../layer/core/InitError.h"
+#include "../../layer/core/LoadingFailedException.h"
 
 #include "../../layer/font/FontContext.h"
 
@@ -19,6 +20,8 @@ int main(int argc, char** argv) {
             app.run();
         }
     } catch (layer::InitError& e) {
+        std::cerr << e.what() << std::endl;
+    } catch (layer::LoadingFailedException& e) {
         std::cerr << e.what() << std::endl;
     }
 

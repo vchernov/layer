@@ -4,6 +4,8 @@
 
 namespace layer {
 
+class Texture;
+
 class Renderer {
 public:
     static const uint32_t DEFAULT_FLAGS = 0; // providing no flags gives priority to available SDL_RENDERER_ACCELERATED renderers
@@ -12,11 +14,15 @@ public:
     Renderer(SDL_Window* window, uint32_t flags = DEFAULT_FLAGS, int driverIndex = DEFAULT_DRIVER_INDEX);
     virtual ~Renderer();
 
+    SDL_Renderer* getNativeRenderer() const;
+
     // update the screen with any rendering performed since the previous call
     void present();
 
     void setDrawColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 0xFF);
     void clear();
+
+    void render(const Texture& texture);
 
 private:
     SDL_Renderer* renderer;
