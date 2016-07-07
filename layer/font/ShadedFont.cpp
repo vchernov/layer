@@ -4,7 +4,7 @@
 
 namespace layer {
 
-std::unique_ptr<ISurface> ShadedFont::render(const std::string& text) const {
+std::unique_ptr<ISurface> ShadedFont::renderToSurface(const std::string& text) const {
     return std::make_unique<Surface>(TTF_RenderUTF8_Shaded(font, text.c_str(), color, backgroundColor));
 }
 

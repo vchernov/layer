@@ -42,6 +42,8 @@ public:
 
     uint32_t getWindowId() const;
 
+    void setSize(int width, int height);
+
     virtual void swapBuffers() = 0;
 
 protected:

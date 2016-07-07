@@ -14,6 +14,14 @@ SDL_Surface* SurfaceWrapper::getNativeSurface() const {
     return surface;
 }
 
+int SurfaceWrapper::getWidth() const {
+    return surface->w;
+}
+
+int SurfaceWrapper::getHeight() const {
+    return surface->h;
+}
+
 void SurfaceWrapper::fill(uint8_t r, uint8_t g, uint8_t b) {
     SDL_FillRect(surface, nullptr, SDL_MapRGB(surface->format, r, g, b));
 }

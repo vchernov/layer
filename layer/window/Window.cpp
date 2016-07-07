@@ -18,6 +18,10 @@ uint32_t Window::getWindowId() const {
     return SDL_GetWindowID(window);
 }
 
+void Window::setSize(int width, int height) {
+    SDL_SetWindowSize(window, width, height);
+}
+
 Window::~Window() {
     SDL_DestroyWindow(window);
 }

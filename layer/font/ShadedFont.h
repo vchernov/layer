@@ -9,7 +9,7 @@ public:
     ShadedFont(const std::string& fileName, int pointSize) : Font(fileName, pointSize) {}
     ~ShadedFont() override = default;
 
-    std::unique_ptr<ISurface> render(const std::string& text) const override;
+    std::unique_ptr<ISurface> renderToSurface(const std::string& text) const override;
 
     void setBackgroundColor(uint8_t r, uint8_t g, uint8_t b);
 

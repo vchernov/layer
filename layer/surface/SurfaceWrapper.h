@@ -13,6 +13,9 @@ public:
 
     SDL_Surface* getNativeSurface() const override;
 
+    int getWidth() const override;
+    int getHeight() const override;
+
     void fill(uint8_t r, uint8_t g, uint8_t b) override;
     void fill(uint8_t r, uint8_t g, uint8_t b, uint8_t a) override;
 

@@ -10,6 +10,9 @@ public:
 
     virtual SDL_Surface* getNativeSurface() const = 0;
 
+    virtual int getWidth() const = 0;
+    virtual int getHeight() const = 0;
+
     virtual void fill(uint8_t r, uint8_t g, uint8_t b) = 0;
     virtual void fill(uint8_t r, uint8_t g, uint8_t b, uint8_t a) = 0;
 

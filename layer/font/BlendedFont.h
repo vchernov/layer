@@ -9,7 +9,7 @@ public:
     BlendedFont(const std::string& fileName, int pointSize) : Font(fileName, pointSize) {}
     ~BlendedFont() override = default;
 
-    std::unique_ptr<ISurface> render(const std::string& text) const override;
+    std::unique_ptr<ISurface> renderToSurface(const std::string& text) const override;
 };
 
 }
