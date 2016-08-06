@@ -23,6 +23,8 @@ public:
     void clear();
 
     void render(const Texture& texture);
+    void render(const Texture& texture, int x, int y);
+    void render(const Texture& texture, int x, int y, int width, int height);
 
 private:
     SDL_Renderer* renderer;

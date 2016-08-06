@@ -14,6 +14,10 @@ public:
 
     SDL_Texture* getNativeTexture() const;
 
+    void getSize(int& width, int& height) const;
+    Uint32 getPixelFormat() const;
+    int getAccess() const;
+
 private:
     SDL_Texture* texture;
 };

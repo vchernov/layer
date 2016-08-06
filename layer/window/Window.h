@@ -43,6 +43,7 @@ public:
     uint32_t getWindowId() const;
 
     void setSize(int width, int height);
+    void getSize(int& width, int& height) const;
 
     virtual void swapBuffers() = 0;
 

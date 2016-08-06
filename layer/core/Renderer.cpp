@@ -32,4 +32,15 @@ void Renderer::render(const Texture& texture) {
     SDL_RenderCopy(renderer, texture.getNativeTexture(), nullptr, nullptr);
 }
 
+void Renderer::render(const Texture& texture, int x, int y) {
+    int width, height;
+    texture.getSize(width, height);
+    render(texture, x, y, width, height);
+}
+
+void Renderer::render(const Texture& texture, int x, int y, int width, int height) {
+    SDL_Rect dst = { x, y, width, height };
+    SDL_RenderCopy(renderer, texture.getNativeTexture(), nullptr, &dst);
+}
+
 }

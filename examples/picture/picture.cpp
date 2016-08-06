@@ -15,10 +15,13 @@ int main(int argc, char** argv) {
         layer::Context context;
         layer::ImageContext imageContext;
 
-        if (argc > 1) {
-            PictureApp app(argv[1]);
-            app.run();
+        std::vector<std::string> imageFileNames;
+        for (int i = 1; i < argc; i++) {
+            imageFileNames.push_back(argv[i]);
         }
+
+        PictureApp app(imageFileNames);
+        app.run();
     } catch (layer::InitError& e) {
         std::cerr << e.what() << std::endl;
     } catch (layer::LoadingFailedException& e) {

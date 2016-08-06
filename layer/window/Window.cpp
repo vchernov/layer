@@ -22,6 +22,10 @@ void Window::setSize(int width, int height) {
     SDL_SetWindowSize(window, width, height);
 }
 
+void Window::getSize(int& width, int& height) const {
+    SDL_GetWindowSize(window, &width, &height);
+}
+
 Window::~Window() {
     SDL_DestroyWindow(window);
 }
