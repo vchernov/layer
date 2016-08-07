@@ -7,19 +7,19 @@ namespace layer {
 bool FpsCounter::update() {
     frames++;
     uint32_t curTime = Time::ticks();
-    uint32_t dt = curTime - prevTime;
-    elapsed += dt;
-    prevTime = curTime;
+    uint32_t dt = curTime - lastFrameTime;
+    elapsedTime += dt;
+    lastFrameTime = curTime;
 
     bool changed = false;
-    if (elapsed >= 1000) {
+    if (elapsedTime >= 1000) {
         int prevFps = framesPerSec();
-        float sec = elapsed * 0.001f;
+        float sec = elapsedTime * 0.001f;
         fps = frames / sec;
         changed = framesPerSec() != prevFps;
 
         frames = 0;
-        elapsed = 0;
+        elapsedTime = 0;
     }
     return changed;
 }

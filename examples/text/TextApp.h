@@ -23,12 +23,13 @@ protected:
 private:
     void updateWindowSize();
 
+    const char* windowTitle = "Text";
+
     std::string fontFileName;
     int fontSize;
     std::vector<std::string> lines;
 
     std::unique_ptr<layer::Window2D> window;
-    std::unique_ptr<layer::Font> font;
-
     layer::FpsCounter fpsCounter;
+    std::unique_ptr<layer::Font> font;
 };

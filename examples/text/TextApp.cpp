@@ -9,7 +9,7 @@
 #include <sstream>
 
 TextApp::TextApp(const std::string& fontFileName, int fontSize) : fontFileName(fontFileName), fontSize(fontSize) {
-    window = layer::Window::createResizable<layer::Window2D>("Text", 0, 0);
+    window = layer::Window::createResizable<layer::Window2D>(windowTitle, 0, 0);
 
     auto keyEventDispatcher = std::make_shared<layer::KeyboardEventDispatcher>();
     keyEventDispatcher->keyUp[SDL_SCANCODE_1].add(std::bind(&TextApp::setSolidFont, this));
@@ -76,7 +76,7 @@ void TextApp::update() {
 
     if (fpsCounter.update()) {
         std::stringstream title;
-        title << "Text (fps: " << fpsCounter.framesPerSec() << ")";
+        title << windowTitle << " (FPS: " << fpsCounter.framesPerSec() << ")";
         window->setTitle(title.str());
     }
 }
