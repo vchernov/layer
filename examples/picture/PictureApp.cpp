@@ -35,7 +35,7 @@ PictureApp::PictureApp(const std::vector<std::string>& imageFileNames) {
         return (aw * ah) > (bw * bh);
     });
 
-    seed = time(nullptr);
+    seed = static_cast<int>(time(nullptr));
 }
 
 void PictureApp::update() {

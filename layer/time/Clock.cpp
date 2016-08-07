@@ -1,14 +1,11 @@
 #include "Clock.h"
 
-#include <SDL.h>
+#include "Time.h"
 
 namespace layer {
 
 Clock::Clock() {
     start();
-}
-
-Clock::~Clock() {
 }
 
 void Clock::start() {

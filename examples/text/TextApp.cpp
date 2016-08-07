@@ -6,6 +6,8 @@
 
 #include "../../layer/event/KeyboardEventDispatcher.h"
 
+#include <sstream>
+
 TextApp::TextApp(const std::string& fontFileName, int fontSize) : fontFileName(fontFileName), fontSize(fontSize) {
     window = layer::Window::createResizable<layer::Window2D>("Text", 0, 0);
 
@@ -71,4 +73,10 @@ void TextApp::update() {
     }
 
     window->swapBuffers();
+
+    if (fpsCounter.update()) {
+        std::stringstream title;
+        title << "Text (fps: " << fpsCounter.framesPerSec() << ")";
+        window->setTitle(title.str());
+    }
 }

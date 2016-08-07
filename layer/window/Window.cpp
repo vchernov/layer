@@ -14,6 +14,10 @@ Window::Window(const std::string& title, int width, int height, uint32_t flags) 
     }
 }
 
+Window::~Window() {
+    SDL_DestroyWindow(window);
+}
+
 uint32_t Window::getWindowId() const {
     return SDL_GetWindowID(window);
 }
@@ -26,8 +30,8 @@ void Window::getSize(int& width, int& height) const {
     SDL_GetWindowSize(window, &width, &height);
 }
 
-Window::~Window() {
-    SDL_DestroyWindow(window);
+void Window::setTitle(const std::string& title) {
+    SDL_SetWindowTitle(window, title.c_str());
 }
 
 }

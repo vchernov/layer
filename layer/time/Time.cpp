@@ -9,7 +9,7 @@ uint32_t Time::ticks() {
 }
 
 float Time::realtimeSinceStartup() {
-    return ticks() * 0.001f; // millis to seconds
+    return ticks() * 0.001f;
 }
 
 void Time::sleep(uint32_t ms) {

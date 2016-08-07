@@ -45,6 +45,8 @@ public:
     void setSize(int width, int height);
     void getSize(int& width, int& height) const;
 
+    void setTitle(const std::string& title);
+
     virtual void swapBuffers() = 0;
 
 protected:
