@@ -37,6 +37,8 @@ set(SOURCES
     time/Time.cpp
     time/Clock.h
     time/Clock.cpp
+    time/FpsCounter.h
+    time/FpsCounter.cpp
     surface/ISurface.h
     surface/SurfaceWrapper.h
     surface/SurfaceWrapper.cpp
@@ -52,6 +54,8 @@ if (LAYER_IMAGE)
     set(SOURCES ${SOURCES}
         image/ImageContext.h
         image/ImageContext.cpp
+        image/ImageUtils.h
+        image/ImageUtils.cpp
     )
     set(LIBRARIES ${LIBRARIES}
         ${SDL2_IMAGE_LIBRARY}
