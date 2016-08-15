@@ -12,8 +12,7 @@ int main(int, char**) {
         layer::Context context;
 
         FractalApp app;
-        app.setFrameRateLimit(60);
-        app.run();
+        app.run(30);
     } catch (layer::InitError& e) {
         std::cerr << e.what() << std::endl;
     }

@@ -12,9 +12,13 @@ public:
     App();
     virtual ~App() = default;
 
-    void setFrameRateLimit(uint32_t fps);
-
     void run();
+
+    /**
+     * Run with limited frame rate.
+     */
+    void run(uint32_t fps);
+
     void stop();
 
 protected:
@@ -25,7 +29,6 @@ protected:
 
 private:
     bool running = false;
-    uint32_t minFrameTime = 0;
 };
 
 }

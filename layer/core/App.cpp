@@ -10,11 +10,17 @@ App::App() {
     events.addDispatcher(sysEventDispatcher);
 }
 
-void App::setFrameRateLimit(uint32_t fps) {
-    minFrameTime = 1000 / fps;
+void App::run() {
+    running = true;
+    while (running) {
+        events.process();
+        update();
+    }
 }
 
-void App::run() {
+void App::run(uint32_t fps) {
+    uint32_t minFrameTime = 1000 / fps;
+
     running = true;
     while (running) {
         uint32_t frameStartTime = Time::ticks();
