@@ -12,8 +12,8 @@ public:
     void dispatchEvent(const SDL_Event& event) override;
 
     Delegate<int, int> mouseMoved;
-    Delegate<Uint8, int, int> mouseButtonDown;
-    Delegate<Uint8, int, int> mouseButtonUp;
+    Delegate<uint8_t, int, int> mouseButtonDown;
+    Delegate<uint8_t, int, int> mouseButtonUp;
 
 protected:
     virtual void onMouseMoved(const SDL_Event& event);

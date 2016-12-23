@@ -39,8 +39,30 @@ void Renderer::render(const Texture& texture, int x, int y) {
 }
 
 void Renderer::render(const Texture& texture, int x, int y, int width, int height) {
-    SDL_Rect dst = { x, y, width, height };
+    SDL_Rect dst = {x, y, width, height};
     SDL_RenderCopy(renderer, texture.getNativeTexture(), nullptr, &dst);
+}
+
+void Renderer::drawLine(int x1, int y1, int x2, int y2) {
+    SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+}
+
+void Renderer::fillRect(int x, int y, int width, int height) {
+    SDL_Rect rect = {x, y, width, height};
+    SDL_RenderFillRect(renderer, &rect);
+}
+
+void Renderer::drawGrid(int x, int y, int cellWidth, int cellHeight, int rows, int columns) {
+    int yEnd = y + cellHeight * rows;
+    for (int i = 0; i < columns + 1; i++) {
+        int xCur = x + cellWidth * i;
+        drawLine(xCur, y, xCur, yEnd);
+    }
+    int xEnd = x + cellWidth * columns;
+    for (int i = 0; i < rows + 1; i++) {
+        int yCur = y + cellHeight * i;
+        drawLine(x, yCur, xEnd, yCur);
+    }
 }
 
 }

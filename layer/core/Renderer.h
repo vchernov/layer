@@ -26,6 +26,11 @@ public:
     void render(const Texture& texture, int x, int y);
     void render(const Texture& texture, int x, int y, int width, int height);
 
+    void drawLine(int x1, int y1, int x2, int y2);
+    void fillRect(int x, int y, int width, int height);
+
+    void drawGrid(int x, int y, int cellWidth, int cellHeight, int rows, int columns);
+
 private:
     SDL_Renderer* renderer;
 };

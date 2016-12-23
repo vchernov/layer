@@ -1,4 +1,5 @@
 add_subdirectory(demo)
+add_subdirectory(grid)
 add_subdirectory(fractal)
 
 if (OPENGL_FOUND)
