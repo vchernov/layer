@@ -31,20 +31,22 @@ target_compile_features(layer PUBLIC cxx_std_14)
 target_link_libraries(layer ${SDL2_LIBRARIES})
 
 if (LAYER_IMAGE)
-    target_sources(layer
+    target_sources(layer PRIVATE
         image/ImageContext.h image/ImageContext.cpp
         image/ImageUtils.h image/ImageUtils.cpp
     )
+    target_link_libraries(layer ${SDL2_IMAGE_LIBRARIES})
 endif()
 
 if (LAYER_FONT)
-    target_sources(layer
+    target_sources(layer PRIVATE
         font/FontContext.h font/FontContext.cpp
         font/Font.h font/Font.cpp
         font/SolidFont.h font/SolidFont.cpp
         font/ShadedFont.h font/ShadedFont.cpp
         font/BlendedFont.h font/BlendedFont.cpp
     )
+    target_link_libraries(layer ${SDL2_TTF_LIBRARIES})
 endif()
 
 install(TARGETS layer DESTINATION lib)

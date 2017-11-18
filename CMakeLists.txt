@@ -11,12 +11,12 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 if (LAYER_IMAGE)
     find_package(SDL2_image REQUIRED)
-    include_directories(${SDL2_IMAGE_INCLUDE_DIR})
+    include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
 endif()
 
 if (LAYER_FONT)
     find_package(SDL2_ttf REQUIRED)
-    include_directories(${SDL2_TTF_INCLUDE_DIR})
+    include_directories(${SDL2_TTF_INCLUDE_DIRS})
 endif()
 
 add_subdirectory(layer)
@@ -30,4 +30,3 @@ install(DIRECTORY layer
     DESTINATION include
     FILES_MATCHING PATTERN "*.h"
 )
-
