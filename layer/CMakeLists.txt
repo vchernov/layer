@@ -28,6 +28,9 @@ add_library(layer
 )
 
 target_compile_features(layer PUBLIC cxx_std_14)
+
+find_package(SDL2 REQUIRED)
+target_include_directories(layer PUBLIC ${SDL2_INCLUDE_DIRS})
 target_link_libraries(layer ${SDL2_LIBRARIES})
 
 if (LAYER_IMAGE)
@@ -35,6 +38,9 @@ if (LAYER_IMAGE)
         image/ImageContext.h image/ImageContext.cpp
         image/ImageUtils.h image/ImageUtils.cpp
     )
+
+    find_package(SDL2_image REQUIRED)
+    target_include_directories(layer PUBLIC ${SDL2_IMAGE_INCLUDE_DIRS})
     target_link_libraries(layer ${SDL2_IMAGE_LIBRARIES})
 endif()
 
@@ -46,6 +52,9 @@ if (LAYER_FONT)
         font/ShadedFont.h font/ShadedFont.cpp
         font/BlendedFont.h font/BlendedFont.cpp
     )
+
+    find_package(SDL2_ttf REQUIRED)
+    target_include_directories(layer PUBLIC ${SDL2_TTF_INCLUDE_DIRS})
     target_link_libraries(layer ${SDL2_TTF_LIBRARIES})
 endif()
 
