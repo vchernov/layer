@@ -1,4 +1,4 @@
-﻿#include "Texture.h"
+#include "Texture.h"
 
 #include "../surface/ISurface.h"
 #include "Renderer.h"

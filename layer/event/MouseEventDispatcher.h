@@ -7,8 +7,6 @@ namespace layer {
 
 class MouseEventDispatcher : public IEventDispatcher {
 public:
-    virtual ~MouseEventDispatcher() = default;
-
     void dispatchEvent(const SDL_Event& event) override;
 
     Delegate<int, int> mouseMoved;

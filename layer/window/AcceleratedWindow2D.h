@@ -10,7 +10,7 @@ public:
     AcceleratedWindow2D(const std::string& title, int width, int height, uint32_t windowFlags = 0, 
         uint32_t rendererFlags = Renderer::DEFAULT_FLAGS, int driverIndex = Renderer::DEFAULT_DRIVER_INDEX);
 
-    virtual ~AcceleratedWindow2D();
+    ~AcceleratedWindow2D() override;
 
     void swapBuffers() override;
 

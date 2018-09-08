@@ -7,8 +7,6 @@ namespace layer {
 
 class KeyboardEventDispatcher : public IEventDispatcher {
 public:
-    virtual ~KeyboardEventDispatcher() = default;
-
     void dispatchEvent(const SDL_Event& event) override;
 
     DelegateMap<SDL_Keycode> keyDown;

@@ -1,4 +1,4 @@
-﻿#include "SurfaceWrapper.h"
+#include "SurfaceWrapper.h"
 
 #include "../core/IllegalArgumentException.h"
 

@@ -7,8 +7,6 @@ namespace layer {
 
 class WindowEventDispatcher : public IEventDispatcher {
 public:
-    virtual ~WindowEventDispatcher() = default;
-
     void dispatchEvent(const SDL_Event& event) override;
 
     Delegate<> close;
