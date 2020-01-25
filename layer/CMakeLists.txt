@@ -46,12 +46,15 @@ add_library(layer
     surface/Surface.cpp
 )
 
-target_compile_features(layer PUBLIC cxx_std_14)
+target_compile_features(layer PUBLIC cxx_std_17)
 
-find_package(SDL2 REQUIRED)
+find_package(SDL2 CONFIG REQUIRED)
 if (UNIX)
     target_include_directories(layer PUBLIC ${SDL2_INCLUDE_DIRS})
     target_link_libraries(layer PUBLIC ${SDL2_LIBRARIES})
+endif()
+if (WIN32)
+	target_link_libraries(layer PUBLIC SDL2::SDL2 SDL2::SDL2main)
 endif()
 
 if (LAYER_IMAGE)
